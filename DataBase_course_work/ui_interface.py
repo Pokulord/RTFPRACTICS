@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceQfXRFo.ui'
+## Form generated from reading UI file 'interfaceKbYHEA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.14.1
 ##
@@ -20,7 +20,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(949, 550)
+        MainWindow.resize(925, 557)
         MainWindow.setMaximumSize(QSize(999999, 557))
         MainWindow.setStyleSheet(u"background-color: rgb(39, 44, 54)")
         self.centralwidget = QWidget(MainWindow)
@@ -123,6 +123,28 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.autorize_but)
 
+        self.db_work_but = QPushButton(self.top_left_menu)
+        self.db_work_but.setObjectName(u"db_work_but")
+        self.db_work_but.setMinimumSize(QSize(90, 0))
+        self.db_work_but.setFont(font)
+        self.db_work_but.setStyleSheet(u"QPushButton \n"
+"{\n"
+"	color: white;\n"
+"	border: none ;\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"	\n"
+"	background-color:rgb(12, 13, 16)\n"
+"}")
+        icon2 = QIcon()
+        icon2.addFile(u"icons/DB_menu_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.db_work_but.setIcon(icon2)
+        self.db_work_but.setIconSize(QSize(30, 58))
+
+        self.verticalLayout_4.addWidget(self.db_work_but)
+
         self.info_but = QPushButton(self.top_left_menu)
         self.info_but.setObjectName(u"info_but")
         self.info_but.setMinimumSize(QSize(90, 0))
@@ -138,15 +160,21 @@ class Ui_MainWindow(object):
 "	\n"
 "	background-color:rgb(12, 13, 16)\n"
 "}")
-        icon2 = QIcon()
-        icon2.addFile(u"icons/info_icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.info_but.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u"icons/info_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.info_but.setIcon(icon3)
         self.info_but.setIconSize(QSize(30, 58))
 
         self.verticalLayout_4.addWidget(self.info_but)
 
 
         self.verticalLayout_3.addWidget(self.top_left_menu, 0, Qt.AlignHCenter|Qt.AlignTop)
+
+        self.checkBox_3 = QCheckBox(self.left_menu)
+        self.checkBox_3.setObjectName(u"checkBox_3")
+        self.checkBox_3.setStyleSheet(u"color:white")
+
+        self.verticalLayout_3.addWidget(self.checkBox_3)
 
         self.bottom_left_menus = QFrame(self.left_menu)
         self.bottom_left_menus.setObjectName(u"bottom_left_menus")
@@ -170,9 +198,9 @@ class Ui_MainWindow(object):
 "	\n"
 "	background-color:rgb(12, 13, 16)\n"
 "}")
-        icon3 = QIcon()
-        icon3.addFile(u"icons/logout_but.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.logout_but.setIcon(icon3)
+        icon4 = QIcon()
+        icon4.addFile(u"icons/logout_but.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.logout_but.setIcon(icon4)
         self.logout_but.setIconSize(QSize(30, 58))
 
         self.verticalLayout_10.addWidget(self.logout_but)
@@ -328,6 +356,32 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.addWidget(self.authorize_frame)
 
         self.stackedWidget.addWidget(self.authorize_page)
+        self.start_page = QWidget()
+        self.start_page.setObjectName(u"start_page")
+        self.horizontalLayout_4 = QHBoxLayout(self.start_page)
+        self.horizontalLayout_4.setSpacing(0)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.start_page_frame = QFrame(self.start_page)
+        self.start_page_frame.setObjectName(u"start_page_frame")
+        self.start_page_frame.setFrameShape(QFrame.NoFrame)
+        self.start_page_frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_5 = QHBoxLayout(self.start_page_frame)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.label_2 = QLabel(self.start_page_frame)
+        self.label_2.setObjectName(u"label_2")
+        font3 = QFont()
+        font3.setPointSize(13)
+        self.label_2.setFont(font3)
+        self.label_2.setStyleSheet(u"color:white; ")
+        self.label_2.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_5.addWidget(self.label_2)
+
+
+        self.horizontalLayout_4.addWidget(self.start_page_frame)
+
+        self.stackedWidget.addWidget(self.start_page)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
         self.stackedWidget.addWidget(self.page_2)
@@ -342,6 +396,75 @@ class Ui_MainWindow(object):
         self.logging_frame.setMinimumSize(QSize(400, 0))
         self.logging_frame.setFrameShape(QFrame.StyledPanel)
         self.logging_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_11 = QVBoxLayout(self.logging_frame)
+        self.verticalLayout_11.setSpacing(0)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.verticalLayout_11.setContentsMargins(5, 0, 5, 0)
+        self.logging_label = QFrame(self.logging_frame)
+        self.logging_label.setObjectName(u"logging_label")
+        self.logging_label.setMinimumSize(QSize(0, 50))
+        self.logging_label.setMaximumSize(QSize(16777215, 50))
+        self.logging_label.setFont(font1)
+        self.logging_label.setFrameShape(QFrame.StyledPanel)
+        self.logging_label.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_12 = QVBoxLayout(self.logging_label)
+        self.verticalLayout_12.setSpacing(0)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.verticalLayout_12.setContentsMargins(0, 30, 0, 0)
+        self.label_3 = QLabel(self.logging_label)
+        self.label_3.setObjectName(u"label_3")
+        font4 = QFont()
+        font4.setPointSize(11)
+        self.label_3.setFont(font4)
+        self.label_3.setStyleSheet(u"color:white")
+        self.label_3.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_12.addWidget(self.label_3)
+
+
+        self.verticalLayout_11.addWidget(self.logging_label, 0, Qt.AlignTop)
+
+        self.logs = QFrame(self.logging_frame)
+        self.logs.setObjectName(u"logs")
+        self.logs.setMinimumSize(QSize(0, 500))
+        self.logs.setFrameShape(QFrame.StyledPanel)
+        self.logs.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_13 = QVBoxLayout(self.logs)
+        self.verticalLayout_13.setSpacing(0)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.verticalLayout_13.setContentsMargins(9, 0, 9, 0)
+        self.logging = QPlainTextEdit(self.logs)
+        self.logging.setObjectName(u"logging")
+        self.logging.setMaximumSize(QSize(16777215, 300))
+        font5 = QFont()
+        font5.setPointSize(12)
+        self.logging.setFont(font5)
+        self.logging.setStyleSheet(u"background-color:white")
+        self.logging.setFrameShape(QFrame.NoFrame)
+
+        self.verticalLayout_13.addWidget(self.logging)
+
+        self.export_logs_but = QPushButton(self.logs)
+        self.export_logs_but.setObjectName(u"export_logs_but")
+        self.export_logs_but.setMinimumSize(QSize(0, 10))
+        self.export_logs_but.setMaximumSize(QSize(16777215, 30))
+        self.export_logs_but.setFont(font1)
+        self.export_logs_but.setStyleSheet(u"QPushButton\n"
+"{\n"
+"color:white\n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"	\n"
+"	background-color: rgb(27, 29, 35);\n"
+"}")
+
+        self.verticalLayout_13.addWidget(self.export_logs_but)
+
+
+        self.verticalLayout_11.addWidget(self.logs, 0, Qt.AlignVCenter)
+
 
         self.horizontalLayout_2.addWidget(self.logging_frame)
 
@@ -352,7 +475,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -362,7 +485,9 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.toggle_menu_but.setText("")
         self.autorize_but.setText("")
+        self.db_work_but.setText("")
         self.info_but.setText("")
+        self.checkBox_3.setText(QCoreApplication.translate("MainWindow", u"   \u041b\u043e\u0433\u0438", None))
         self.logout_but.setText("")
         self.login_lineedit.setText("")
         self.login_lineedit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u041b\u043e\u0433\u0438\u043d.........", None))
@@ -373,5 +498,8 @@ class Ui_MainWindow(object):
         self.checkBox_2.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c \u0441\u0435\u0441\u0441\u0438\u044e", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043b\u043e\u0433\u0438\u043d \u0438 \u043f\u0430\u0440\u043e\u043b\u044c \u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e!!!", None))
         self.Authorize_button.setText(QCoreApplication.translate("MainWindow", u"\u0412\u041e\u0419\u0422\u0418", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0414\u041e\u0411\u0420\u041e \u041f\u041e\u0416\u0410\u041b\u041e\u0412\u0410\u0422\u042c", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"LOGS", None))
+        self.export_logs_but.setText(QCoreApplication.translate("MainWindow", u"\u042d\u043a\u0441\u043f\u043e\u0440\u0442 \u043b\u043e\u0433\u043e\u0432", None))
     # retranslateUi
 
