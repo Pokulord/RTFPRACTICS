@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceKbYHEA.ui'
+## Form generated from reading UI file 'interfaceqihpAv.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.14.1
 ##
@@ -170,11 +170,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.top_left_menu, 0, Qt.AlignHCenter|Qt.AlignTop)
 
-        self.checkBox_3 = QCheckBox(self.left_menu)
-        self.checkBox_3.setObjectName(u"checkBox_3")
-        self.checkBox_3.setStyleSheet(u"color:white")
+        self.enable_logs = QCheckBox(self.left_menu)
+        self.enable_logs.setObjectName(u"enable_logs")
+        self.enable_logs.setStyleSheet(u"color:white")
 
-        self.verticalLayout_3.addWidget(self.checkBox_3)
+        self.verticalLayout_3.addWidget(self.enable_logs)
 
         self.bottom_left_menus = QFrame(self.left_menu)
         self.bottom_left_menus.setObjectName(u"bottom_left_menus")
@@ -475,7 +475,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -487,7 +487,7 @@ class Ui_MainWindow(object):
         self.autorize_but.setText("")
         self.db_work_but.setText("")
         self.info_but.setText("")
-        self.checkBox_3.setText(QCoreApplication.translate("MainWindow", u"   \u041b\u043e\u0433\u0438", None))
+        self.enable_logs.setText(QCoreApplication.translate("MainWindow", u"   \u041b\u043e\u0433\u0438", None))
         self.logout_but.setText("")
         self.login_lineedit.setText("")
         self.login_lineedit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u041b\u043e\u0433\u0438\u043d.........", None))

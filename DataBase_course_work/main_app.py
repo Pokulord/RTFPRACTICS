@@ -21,7 +21,16 @@ from ui_interface import Ui_MainWindow
 #Импорт Функций интерфейса
 from ui_functions import *
 
+import json
+
+with open("session.json", "r") as json_session:
+    json_session_content = json.load(json_session)
+
 class MainWin(QMainWindow):
+
+    def update_session(self, session_flags): 
+        print(json_session_content)
+
     def __init__(self):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
@@ -30,17 +39,20 @@ class MainWin(QMainWindow):
         "service":
         {
             "logs": self.ui.logging_frame,
+            "logout_but" : self.ui.logout_but
         },
         "work_with_db":
         {
-            "db_button": self.ui.db_work_but
+            "db_button": self.ui.db_work_but,
         }
         }
 
         self.setWindowTitle("Программа для базы данных")
         self.setWindowIcon(QtGui.QIcon("icons/main_win_icon.png"))
         Ui_Functions.HideElems(self,all_ui_elements)
-        Ui_Functions.ShowInterface(self, all_ui_elements)
+        Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content)
+        self.ui.autorize_but.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.authorize_page))
+        self.ui.enable_logs.clicked.connect(lambda check = None ,  flag = ["widgets", "logs"] : self.update_session(flag))
         #Переключение Burger-menu
 
 

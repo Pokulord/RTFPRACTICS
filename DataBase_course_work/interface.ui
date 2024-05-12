@@ -356,7 +356,7 @@ QPushButton:hover
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="checkBox_3">
+           <widget class="QCheckBox" name="enable_logs">
             <property name="styleSheet">
              <string notr="true">color:white</string>
             </property>

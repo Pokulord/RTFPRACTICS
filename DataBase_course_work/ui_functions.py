@@ -26,21 +26,20 @@ class Ui_Functions(MainWin):
             for widget in ui_elements[key]:
                 ui_elements[key][widget].hide()
 
-    def ShowInterface(self , all_ui_elements):
+    def ShowInterface(self , all_ui_elements, json_session_content):
         global json_session
         self.ui.stackedWidget.setCurrentWidget(self.ui.start_page)
-        with open("session.json", "r") as json_session:
-            json_session_content = json.load(json_session)
-            print("Файл JSON успешно открыт")
-            for json_parameter in list(json_session_content["current_session"]["widgets"].keys()):
-                # if json_session_content["current_session"]["widgets"][json_parameter] == "True" and json_parameter in list(all_ui_elements["service"].keys() or json_parameter in list(all_ui_elements["work_with_db"].keys())):
-                #     all_ui_elements["service"][json_parameter].show()
-                for widget_type in list(all_ui_elements.keys()):
-                    for widget in list(all_ui_elements[widget_type]):
-                        if json_session_content["current_session"]["widgets"][widget] == "True":
+        print("Файл JSON успешно открыт")
+        for json_parameter in list(json_session_content["current_session"]["widgets"].keys()):
+            for widget_type in list(all_ui_elements.keys()):
+                for widget in list(all_ui_elements[widget_type]):
+                    try:
+                        if json_session_content["current_session"]["widgets"][widget] :
                             all_ui_elements[widget_type][widget].show()
-                        # print("АКтивные элементы")
-                        # print(json_session_content["current_session"]["widgets"][widget])
+                    except:
+                        pass
+        if json_session_content["current_session"]["widgets"]["logs"] :
+            self.ui.enable_logs.setChecked(True) 
                 
 
 
