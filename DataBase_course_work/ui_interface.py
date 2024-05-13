@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceqihpAv.ui'
+## Form generated from reading UI file 'interfaceOBZzxt.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.14.1
 ##
@@ -290,6 +290,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.addWidget(self.checkBox)
 
         self.DB_choice_CB = QComboBox(self.data_input_frame)
+        self.DB_choice_CB.addItem("")
         self.DB_choice_CB.setObjectName(u"DB_choice_CB")
         self.DB_choice_CB.setMaximumSize(QSize(321, 31))
         self.DB_choice_CB.setStyleSheet(u"background-color:white")
@@ -304,13 +305,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.checkBox_2)
 
-        self.label = QLabel(self.data_input_frame)
-        self.label.setObjectName(u"label")
-        self.label.setMaximumSize(QSize(321, 50))
-        self.label.setFont(font1)
-        self.label.setStyleSheet(u"color: white")
+        self.wrong_pass_label = QLabel(self.data_input_frame)
+        self.wrong_pass_label.setObjectName(u"wrong_pass_label")
+        self.wrong_pass_label.setMaximumSize(QSize(321, 50))
+        self.wrong_pass_label.setFont(font1)
+        self.wrong_pass_label.setStyleSheet(u"color: white")
 
-        self.verticalLayout_8.addWidget(self.label)
+        self.verticalLayout_8.addWidget(self.wrong_pass_label)
 
 
         self.verticalLayout_6.addWidget(self.data_input_frame, 0, Qt.AlignHCenter)
@@ -494,9 +495,11 @@ class Ui_MainWindow(object):
         self.password_lineEdit.setText("")
         self.password_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u041f\u0430\u0440\u043e\u043b\u044c........", None))
         self.checkBox.setText(QCoreApplication.translate("MainWindow", u"localhost", None))
-        self.DB_choice_CB.setCurrentText("")
+        self.DB_choice_CB.setItemText(0, QCoreApplication.translate("MainWindow", u"It_Cube", None))
+
+        self.DB_choice_CB.setCurrentText(QCoreApplication.translate("MainWindow", u"It_Cube", None))
         self.checkBox_2.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c \u0441\u0435\u0441\u0441\u0438\u044e", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043b\u043e\u0433\u0438\u043d \u0438 \u043f\u0430\u0440\u043e\u043b\u044c \u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e!!!", None))
+        self.wrong_pass_label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043b\u043e\u0433\u0438\u043d \u0438 \u043f\u0430\u0440\u043e\u043b\u044c \u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e!!!", None))
         self.Authorize_button.setText(QCoreApplication.translate("MainWindow", u"\u0412\u041e\u0419\u0422\u0418", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0414\u041e\u0411\u0420\u041e \u041f\u041e\u0416\u0410\u041b\u041e\u0412\u0410\u0422\u042c", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"LOGS", None))

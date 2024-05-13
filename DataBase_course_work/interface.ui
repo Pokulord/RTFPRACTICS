@@ -458,7 +458,7 @@ QPushButton:hover
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
-             <number>2</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="Info_page">
              <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -651,11 +651,16 @@ background-color:white;</string>
                        <string notr="true">background-color:white</string>
                       </property>
                       <property name="currentText">
-                       <string/>
+                       <string>It_Cube</string>
                       </property>
                       <property name="sizeAdjustPolicy">
                        <enum>QComboBox::AdjustToContents</enum>
                       </property>
+                      <item>
+                       <property name="text">
+                        <string>It_Cube</string>
+                       </property>
+                      </item>
                      </widget>
                     </item>
                     <item>
@@ -674,7 +679,7 @@ background-color:white;</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLabel" name="label">
+                     <widget class="QLabel" name="wrong_pass_label">
                       <property name="maximumSize">
                        <size>
                         <width>321</width>
