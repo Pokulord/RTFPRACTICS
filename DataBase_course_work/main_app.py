@@ -51,24 +51,40 @@ with open("session.json", "r") as json_session:
 
 class MainWin(QMainWindow):
 
+
+
+    def update_session(self, session_flags):
+            Ui_Functions.HideElems(self, all_ui_elements)
+            with open("session.json" , "w") as updating_json:
+                if session_flags[0] == "widgets":
+                    is_true = json_session_content["current_session"]["widgets"][session_flags[-1]] == False
+                    json_session_content["current_session"]["widgets"][session_flags[-1]] = is_true
+                    json.dump(json_session_content, updating_json, indent= 4) 
+                    Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content)  
+                if session_flags[0] == "auth":
+                     json_session_content["current_session"]["login"] = session_flags[1]
+                     json_session_content["current_session"]["password"] = session_flags[2]
+                     json_session_content["current_session"]["cur_db"] = session_flags[3]
+                     json.dump(json_session_content, updating_json, indent= 4) 
+                     Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, ["pages", "work_with_db"]) 
+
+
+         
     def auth_to_db(self):
         bd_login = self.ui.login_lineedit.text().strip()
         bd_pass = self.ui.password_lineEdit.text().strip()
         need_bd = self.ui.DB_choice_CB.currentText()
         if self.db.connect_to_database("localhost",bd_login, bd_pass, need_bd):
-             print("Успешеное подключение к БД")
+            print("Успешеное подключение к БД")
+            self.ui.wrong_pass_label.hide()
+            self.update_session(["auth", bd_login, bd_pass, need_bd])
 
-    def update_session(self, session_flags): 
-            with open("session.json" , "w") as updating_json:
-                if session_flags[0] == "widgets":
-                    is_true = json_session_content["current_session"]["widgets"][session_flags[-1]] == False
-                    json_session_content["current_session"]["widgets"][session_flags[-1]] = is_true
-                    json.dump(json_session_content, updating_json, indent= 4)
-                    Ui_Functions.HideElems(self, all_ui_elements)
-                    Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content)
+            self.ui.wrong_pass_label.show()
+
 
     def __init__(self):
-        global all_ui_elements
+        global all_ui_elements, page_flag
+        page_flag = "start"
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -82,13 +98,26 @@ class MainWin(QMainWindow):
         "work_with_db":
         {
             "db_button": self.ui.db_work_but,
-            "wrong_pass" : self.ui.wrong_pass_label
+            "wrong_pass" : self.ui.wrong_pass_label,
+        },
+        "pages":
+        {
+             "work_with_db" : self.ui.work_with_db_page,
+             "start": self.ui.start_page,
         }
         }
         self.setWindowTitle("Программа для базы данных")
         self.setWindowIcon(QtGui.QIcon("icons/main_win_icon.png"))
         Ui_Functions.HideElems(self,all_ui_elements)
         Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content)
+        # В случае, если в файле сессии содержатся данные о входе
+        if json_session_content['current_session']["login"] != "" :
+             db_login = json_session_content['current_session']["login"]
+             db_pass = json_session_content['current_session']["password"]
+             need_db = json_session_content['current_session']["cur_db"]
+             if self.db.connect_to_database("localhost", db_login, db_pass, need_db):
+                  print("Success")
+        self.ui.db_work_but.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.work_with_db_page))          
         self.ui.autorize_but.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.authorize_page))
         self.ui.enable_logs.clicked.connect(lambda check = None ,  flag = ["widgets", "logs"] : self.update_session(flag))
         self.ui.Authorize_button.clicked.connect(self.auth_to_db)

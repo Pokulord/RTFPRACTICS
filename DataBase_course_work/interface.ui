@@ -455,7 +455,7 @@ QPushButton:hover
           <property name="bottomMargin">
            <number>0</number>
           </property>
-          <item>
+          <item alignment="Qt::AlignTop">
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
              <number>1</number>
@@ -485,6 +485,263 @@ QPushButton:hover
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="work_with_db_page">
+             <layout class="QVBoxLayout" name="verticalLayout_14">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QFrame" name="work_with_db_frame">
+                <property name="styleSheet">
+                 <string notr="true">color:wihte</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_15">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_4">
+                   <property name="styleSheet">
+                    <string notr="true">color: white</string>
+                   </property>
+                   <property name="text">
+                    <string>ВАША ТЕКУЩАЯ РОЛЬ: </string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QTableWidget" name="bd_table">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>300</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: white</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_to_add_and_delete">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>60</height>
+                    </size>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_6">
+                    <item>
+                     <widget class="QPushButton" name="delete_row">
+                      <property name="enabled">
+                       <bool>true</bool>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>162</width>
+                        <height>39</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>162</width>
+                        <height>39</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>Montserrat</family>
+                        <pointsize>10</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton
+{
+	
+	background-color: rgb(217, 217, 217);
+	border-radius: 10px;
+	margin-top: 10px; 
+}
+
+QPushButton:hover
+{
+	
+	background-color: rgb(64, 72, 89);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>ДОБАВИТЬ</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="add_row">
+                      <property name="enabled">
+                       <bool>true</bool>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>162</width>
+                        <height>39</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>162</width>
+                        <height>39</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>Montserrat</family>
+                        <pointsize>10</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton
+{
+	
+	background-color: rgb(217, 217, 217);
+	border-radius: 10px;
+	margin-top: 10px; 
+}
+
+QPushButton:hover
+{
+	
+	background-color: rgb(64, 72, 89);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>УДАЛИТЬ</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>10</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: white</string>
+                   </property>
+                   <property name="text">
+                    <string>Выберите таблицу</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="table_choice_comboBox">
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: white</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="choice_table_but">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>162</width>
+                     <height>39</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>162</width>
+                     <height>39</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Montserrat</family>
+                     <pointsize>10</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton
+{
+	
+	background-color: rgb(217, 217, 217);
+	border-radius: 10px;
+	margin-top: 10px; 
+}
+
+QPushButton:hover
+{
+	
+	background-color: rgb(64, 72, 89);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>ВЫБРАТЬ</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="comboBox"/>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>
@@ -625,6 +882,27 @@ background-color:white;</string>
                      </widget>
                     </item>
                     <item>
+                     <widget class="QLabel" name="wrong_pass_label">
+                      <property name="maximumSize">
+                       <size>
+                        <width>321</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>10</pointsize>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: white</string>
+                      </property>
+                      <property name="text">
+                       <string>Введите логин и пароль корректно!!!</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
                      <widget class="QCheckBox" name="checkBox">
                       <property name="font">
                        <font>
@@ -664,6 +942,27 @@ background-color:white;</string>
                      </widget>
                     </item>
                     <item>
+                     <widget class="QRadioButton" name="radioButton">
+                      <property name="styleSheet">
+                       <string notr="true">color:white
+</string>
+                      </property>
+                      <property name="text">
+                       <string>Администратор</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QRadioButton" name="radioButton_2">
+                      <property name="styleSheet">
+                       <string notr="true">color: white</string>
+                      </property>
+                      <property name="text">
+                       <string>Родитель</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
                      <widget class="QCheckBox" name="checkBox_2">
                       <property name="font">
                        <font>
@@ -675,27 +974,6 @@ background-color:white;</string>
                       </property>
                       <property name="text">
                        <string>Сохранить сессию</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="wrong_pass_label">
-                      <property name="maximumSize">
-                       <size>
-                        <width>321</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>10</pointsize>
-                       </font>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">color: white</string>
-                      </property>
-                      <property name="text">
-                       <string>Введите логин и пароль корректно!!!</string>
                       </property>
                      </widget>
                     </item>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceOBZzxt.ui'
+## Form generated from reading UI file 'interfaceMfjMJX.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.14.1
 ##
@@ -235,6 +235,138 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.addWidget(self.info_page_frame)
 
         self.stackedWidget.addWidget(self.Info_page)
+        self.work_with_db_page = QWidget()
+        self.work_with_db_page.setObjectName(u"work_with_db_page")
+        self.verticalLayout_14 = QVBoxLayout(self.work_with_db_page)
+        self.verticalLayout_14.setSpacing(0)
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
+        self.work_with_db_frame = QFrame(self.work_with_db_page)
+        self.work_with_db_frame.setObjectName(u"work_with_db_frame")
+        self.work_with_db_frame.setStyleSheet(u"color:wihte")
+        self.work_with_db_frame.setFrameShape(QFrame.StyledPanel)
+        self.work_with_db_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_15 = QVBoxLayout(self.work_with_db_frame)
+        self.verticalLayout_15.setSpacing(0)
+        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.label_4 = QLabel(self.work_with_db_frame)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setStyleSheet(u"color: white")
+
+        self.verticalLayout_15.addWidget(self.label_4)
+
+        self.bd_table = QTableWidget(self.work_with_db_frame)
+        self.bd_table.setObjectName(u"bd_table")
+        self.bd_table.setMaximumSize(QSize(16777215, 300))
+        self.bd_table.setStyleSheet(u"background-color: white")
+
+        self.verticalLayout_15.addWidget(self.bd_table)
+
+        self.frame_to_add_and_delete = QFrame(self.work_with_db_frame)
+        self.frame_to_add_and_delete.setObjectName(u"frame_to_add_and_delete")
+        self.frame_to_add_and_delete.setMaximumSize(QSize(16777215, 60))
+        self.frame_to_add_and_delete.setFrameShape(QFrame.StyledPanel)
+        self.frame_to_add_and_delete.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_6 = QHBoxLayout(self.frame_to_add_and_delete)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.delete_row = QPushButton(self.frame_to_add_and_delete)
+        self.delete_row.setObjectName(u"delete_row")
+        self.delete_row.setEnabled(True)
+        self.delete_row.setMinimumSize(QSize(162, 39))
+        self.delete_row.setMaximumSize(QSize(162, 39))
+        font1 = QFont()
+        font1.setFamily(u"Montserrat")
+        font1.setPointSize(10)
+        font1.setBold(True)
+        font1.setWeight(75)
+        self.delete_row.setFont(font1)
+        self.delete_row.setStyleSheet(u"QPushButton\n"
+"{\n"
+"	\n"
+"	background-color: rgb(217, 217, 217);\n"
+"	border-radius: 10px;\n"
+"	margin-top: 10px; \n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"	\n"
+"	background-color: rgb(64, 72, 89);\n"
+"}")
+
+        self.horizontalLayout_6.addWidget(self.delete_row)
+
+        self.add_row = QPushButton(self.frame_to_add_and_delete)
+        self.add_row.setObjectName(u"add_row")
+        self.add_row.setEnabled(True)
+        self.add_row.setMinimumSize(QSize(162, 39))
+        self.add_row.setMaximumSize(QSize(162, 39))
+        self.add_row.setFont(font1)
+        self.add_row.setStyleSheet(u"QPushButton\n"
+"{\n"
+"	\n"
+"	background-color: rgb(217, 217, 217);\n"
+"	border-radius: 10px;\n"
+"	margin-top: 10px; \n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"	\n"
+"	background-color: rgb(64, 72, 89);\n"
+"}")
+
+        self.horizontalLayout_6.addWidget(self.add_row)
+
+
+        self.verticalLayout_15.addWidget(self.frame_to_add_and_delete)
+
+        self.label = QLabel(self.work_with_db_frame)
+        self.label.setObjectName(u"label")
+        self.label.setMaximumSize(QSize(16777215, 10))
+        self.label.setStyleSheet(u"color: white")
+
+        self.verticalLayout_15.addWidget(self.label)
+
+        self.table_choice_comboBox = QComboBox(self.work_with_db_frame)
+        self.table_choice_comboBox.setObjectName(u"table_choice_comboBox")
+        self.table_choice_comboBox.setMaximumSize(QSize(200, 16777215))
+        self.table_choice_comboBox.setStyleSheet(u"background-color: white")
+
+        self.verticalLayout_15.addWidget(self.table_choice_comboBox)
+
+        self.choice_table_but = QPushButton(self.work_with_db_frame)
+        self.choice_table_but.setObjectName(u"choice_table_but")
+        self.choice_table_but.setEnabled(True)
+        self.choice_table_but.setMinimumSize(QSize(162, 39))
+        self.choice_table_but.setMaximumSize(QSize(162, 39))
+        self.choice_table_but.setFont(font1)
+        self.choice_table_but.setStyleSheet(u"QPushButton\n"
+"{\n"
+"	\n"
+"	background-color: rgb(217, 217, 217);\n"
+"	border-radius: 10px;\n"
+"	margin-top: 10px; \n"
+"}\n"
+"\n"
+"QPushButton:hover\n"
+"{\n"
+"	\n"
+"	background-color: rgb(64, 72, 89);\n"
+"}")
+
+        self.verticalLayout_15.addWidget(self.choice_table_but)
+
+        self.comboBox = QComboBox(self.work_with_db_frame)
+        self.comboBox.setObjectName(u"comboBox")
+
+        self.verticalLayout_15.addWidget(self.comboBox)
+
+
+        self.verticalLayout_14.addWidget(self.work_with_db_frame)
+
+        self.stackedWidget.addWidget(self.work_with_db_page)
         self.authorize_page = QWidget()
         self.authorize_page.setObjectName(u"authorize_page")
         self.verticalLayout_5 = QVBoxLayout(self.authorize_page)
@@ -280,11 +412,19 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.password_lineEdit)
 
+        self.wrong_pass_label = QLabel(self.data_input_frame)
+        self.wrong_pass_label.setObjectName(u"wrong_pass_label")
+        self.wrong_pass_label.setMaximumSize(QSize(321, 20))
+        font2 = QFont()
+        font2.setPointSize(10)
+        self.wrong_pass_label.setFont(font2)
+        self.wrong_pass_label.setStyleSheet(u"color: white")
+
+        self.verticalLayout_8.addWidget(self.wrong_pass_label)
+
         self.checkBox = QCheckBox(self.data_input_frame)
         self.checkBox.setObjectName(u"checkBox")
-        font1 = QFont()
-        font1.setPointSize(10)
-        self.checkBox.setFont(font1)
+        self.checkBox.setFont(font2)
         self.checkBox.setStyleSheet(u"color:white")
 
         self.verticalLayout_8.addWidget(self.checkBox)
@@ -298,20 +438,25 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.DB_choice_CB)
 
+        self.radioButton = QRadioButton(self.data_input_frame)
+        self.radioButton.setObjectName(u"radioButton")
+        self.radioButton.setStyleSheet(u"color:white\n"
+"")
+
+        self.verticalLayout_8.addWidget(self.radioButton)
+
+        self.radioButton_2 = QRadioButton(self.data_input_frame)
+        self.radioButton_2.setObjectName(u"radioButton_2")
+        self.radioButton_2.setStyleSheet(u"color: white")
+
+        self.verticalLayout_8.addWidget(self.radioButton_2)
+
         self.checkBox_2 = QCheckBox(self.data_input_frame)
         self.checkBox_2.setObjectName(u"checkBox_2")
-        self.checkBox_2.setFont(font1)
+        self.checkBox_2.setFont(font2)
         self.checkBox_2.setStyleSheet(u"color:white")
 
         self.verticalLayout_8.addWidget(self.checkBox_2)
-
-        self.wrong_pass_label = QLabel(self.data_input_frame)
-        self.wrong_pass_label.setObjectName(u"wrong_pass_label")
-        self.wrong_pass_label.setMaximumSize(QSize(321, 50))
-        self.wrong_pass_label.setFont(font1)
-        self.wrong_pass_label.setStyleSheet(u"color: white")
-
-        self.verticalLayout_8.addWidget(self.wrong_pass_label)
 
 
         self.verticalLayout_6.addWidget(self.data_input_frame, 0, Qt.AlignHCenter)
@@ -329,12 +474,7 @@ class Ui_MainWindow(object):
         self.Authorize_button.setEnabled(True)
         self.Authorize_button.setMinimumSize(QSize(162, 39))
         self.Authorize_button.setMaximumSize(QSize(162, 39))
-        font2 = QFont()
-        font2.setFamily(u"Montserrat")
-        font2.setPointSize(10)
-        font2.setBold(True)
-        font2.setWeight(75)
-        self.Authorize_button.setFont(font2)
+        self.Authorize_button.setFont(font1)
         self.Authorize_button.setStyleSheet(u"QPushButton\n"
 "{\n"
 "	\n"
@@ -387,7 +527,7 @@ class Ui_MainWindow(object):
         self.page_2.setObjectName(u"page_2")
         self.stackedWidget.addWidget(self.page_2)
 
-        self.horizontalLayout_3.addWidget(self.stackedWidget)
+        self.horizontalLayout_3.addWidget(self.stackedWidget, 0, Qt.AlignTop)
 
 
         self.horizontalLayout_2.addWidget(self.main_pages)
@@ -405,7 +545,7 @@ class Ui_MainWindow(object):
         self.logging_label.setObjectName(u"logging_label")
         self.logging_label.setMinimumSize(QSize(0, 50))
         self.logging_label.setMaximumSize(QSize(16777215, 50))
-        self.logging_label.setFont(font1)
+        self.logging_label.setFont(font2)
         self.logging_label.setFrameShape(QFrame.StyledPanel)
         self.logging_label.setFrameShadow(QFrame.Raised)
         self.verticalLayout_12 = QVBoxLayout(self.logging_label)
@@ -449,7 +589,7 @@ class Ui_MainWindow(object):
         self.export_logs_but.setObjectName(u"export_logs_but")
         self.export_logs_but.setMinimumSize(QSize(0, 10))
         self.export_logs_but.setMaximumSize(QSize(16777215, 30))
-        self.export_logs_but.setFont(font1)
+        self.export_logs_but.setFont(font2)
         self.export_logs_but.setStyleSheet(u"QPushButton\n"
 "{\n"
 "color:white\n"
@@ -490,16 +630,23 @@ class Ui_MainWindow(object):
         self.info_but.setText("")
         self.enable_logs.setText(QCoreApplication.translate("MainWindow", u"   \u041b\u043e\u0433\u0438", None))
         self.logout_but.setText("")
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0410\u0428\u0410 \u0422\u0415\u041a\u0423\u0429\u0410\u042f \u0420\u041e\u041b\u042c: ", None))
+        self.delete_row.setText(QCoreApplication.translate("MainWindow", u"\u0414\u041e\u0411\u0410\u0412\u0418\u0422\u042c", None))
+        self.add_row.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0414\u0410\u041b\u0418\u0422\u042c", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0430\u0431\u043b\u0438\u0446\u0443", None))
+        self.choice_table_but.setText(QCoreApplication.translate("MainWindow", u"\u0412\u042b\u0411\u0420\u0410\u0422\u042c", None))
         self.login_lineedit.setText("")
         self.login_lineedit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u041b\u043e\u0433\u0438\u043d.........", None))
         self.password_lineEdit.setText("")
         self.password_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u041f\u0430\u0440\u043e\u043b\u044c........", None))
+        self.wrong_pass_label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043b\u043e\u0433\u0438\u043d \u0438 \u043f\u0430\u0440\u043e\u043b\u044c \u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e!!!", None))
         self.checkBox.setText(QCoreApplication.translate("MainWindow", u"localhost", None))
         self.DB_choice_CB.setItemText(0, QCoreApplication.translate("MainWindow", u"It_Cube", None))
 
         self.DB_choice_CB.setCurrentText(QCoreApplication.translate("MainWindow", u"It_Cube", None))
+        self.radioButton.setText(QCoreApplication.translate("MainWindow", u"\u0410\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440", None))
+        self.radioButton_2.setText(QCoreApplication.translate("MainWindow", u"\u0420\u043e\u0434\u0438\u0442\u0435\u043b\u044c", None))
         self.checkBox_2.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c \u0441\u0435\u0441\u0441\u0438\u044e", None))
-        self.wrong_pass_label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043b\u043e\u0433\u0438\u043d \u0438 \u043f\u0430\u0440\u043e\u043b\u044c \u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e!!!", None))
         self.Authorize_button.setText(QCoreApplication.translate("MainWindow", u"\u0412\u041e\u0419\u0422\u0418", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0414\u041e\u0411\u0420\u041e \u041f\u041e\u0416\u0410\u041b\u041e\u0412\u0410\u0422\u042c", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"LOGS", None))
