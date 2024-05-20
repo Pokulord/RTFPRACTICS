@@ -60,17 +60,22 @@ class MainWin(QMainWindow):
                     is_true = json_session_content["current_session"]["widgets"][session_flags[-1]] == False
                     json_session_content["current_session"]["widgets"][session_flags[-1]] = is_true
                     json.dump(json_session_content, updating_json, indent= 4) 
-                    Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content)  
+                    Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, cur_widget= ["pages", page_flag]) 
+                    return 
                 if session_flags[0] == "auth":
                      json_session_content["current_session"]["login"] = session_flags[1]
                      json_session_content["current_session"]["password"] = session_flags[2]
                      json_session_content["current_session"]["cur_db"] = session_flags[3]
                      json.dump(json_session_content, updating_json, indent= 4) 
-                     Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, ["pages", "work_with_db"]) 
+                     Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, ["pages", "work_with_db"])
+                     return
+                self.ui.stackedWidget.setCurrentWidget(all_ui_elements["pages"][page_flag])
 
 
          
     def auth_to_db(self):
+        global page_flag
+        page_flag = "work_with_db"
         bd_login = self.ui.login_lineedit.text().strip()
         bd_pass = self.ui.password_lineEdit.text().strip()
         need_bd = self.ui.DB_choice_CB.currentText()
