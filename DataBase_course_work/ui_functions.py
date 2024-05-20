@@ -27,6 +27,7 @@ class Ui_Functions(MainWin):
                 ui_elements[key][widget].hide()
 
     def ShowInterface(self , all_ui_elements, json_session_content, cur_widget = None, is_auth = False):
+        print(cur_widget)
         global json_session
         self.ui.stackedWidget.setCurrentWidget(self.ui.start_page)
         print("Файл JSON успешно открыт")
@@ -38,6 +39,10 @@ class Ui_Functions(MainWin):
                             all_ui_elements[widget_type][widget].show()
                     except:
                         pass
+        if is_auth:
+            self.ui.db_work_but.show()
+            self.ui.logout_but.show()
+            self.ui.autorize_but.hide()
         if json_session_content["current_session"]["widgets"]["logs"] :
             self.ui.enable_logs.setChecked(True)
         if cur_widget != None: 

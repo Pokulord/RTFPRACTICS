@@ -60,14 +60,14 @@ class MainWin(QMainWindow):
                     is_true = json_session_content["current_session"]["widgets"][session_flags[-1]] == False
                     json_session_content["current_session"]["widgets"][session_flags[-1]] = is_true
                     json.dump(json_session_content, updating_json, indent= 4) 
-                    Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, cur_widget= ["pages", page_flag]) 
+                    Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, cur_widget= ["pages", page_flag], is_auth= is_auth_flag) 
                     return 
                 if session_flags[0] == "auth":
                      json_session_content["current_session"]["login"] = session_flags[1]
                      json_session_content["current_session"]["password"] = session_flags[2]
                      json_session_content["current_session"]["cur_db"] = session_flags[3]
-                     json.dump(json_session_content, updating_json, indent= 4) 
-                     Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, ["pages", "work_with_db"])
+                     json.dump(json_session_content, updating_json, indent= 4)
+                     Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, ["pages", "work_with_db"], is_auth= True)
                      return
                 self.ui.stackedWidget.setCurrentWidget(all_ui_elements["pages"][page_flag])
 
@@ -88,7 +88,8 @@ class MainWin(QMainWindow):
 
 
     def __init__(self):
-        global all_ui_elements, page_flag
+        global all_ui_elements, page_flag, is_auth_flag
+        is_auth_flag = False
         page_flag = "start"
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
@@ -114,18 +115,23 @@ class MainWin(QMainWindow):
         self.setWindowTitle("Программа для базы данных")
         self.setWindowIcon(QtGui.QIcon("icons/main_win_icon.png"))
         Ui_Functions.HideElems(self,all_ui_elements)
-        Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content)
+        Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, is_auth= is_auth_flag)
         # В случае, если в файле сессии содержатся данные о входе
         if json_session_content['current_session']["login"] != "" :
              db_login = json_session_content['current_session']["login"]
              db_pass = json_session_content['current_session']["password"]
              need_db = json_session_content['current_session']["cur_db"]
              if self.db.connect_to_database("localhost", db_login, db_pass, need_db):
-                  print("Success")
+                  Ui_Functions.HideElems(self, all_ui_elements)
+                  is_auth_flag = True
+                  page_flag = "work_with_db"
+                  Ui_Functions.HideElems(self, all_ui_elements)
+                  Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, is_auth=True, cur_widget=["pages",page_flag])
         self.ui.db_work_but.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.work_with_db_page))          
         self.ui.autorize_but.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.authorize_page))
         self.ui.enable_logs.clicked.connect(lambda check = None ,  flag = ["widgets", "logs"] : self.update_session(flag))
         self.ui.Authorize_button.clicked.connect(self.auth_to_db)
+        self.ui.db_work_but.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.work_with_db_page))
         #Переключение Burger-menu
 
 
