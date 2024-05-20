@@ -69,6 +69,13 @@ class MainWin(QMainWindow):
                      json.dump(json_session_content, updating_json, indent= 4)
                      Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, ["pages", "work_with_db"], is_auth= True)
                      return
+                if session_flags[0] == "logout":
+                     json_session_content["current_session"]["login"] = ""
+                     json_session_content["current_session"]["password"] = ""
+                     json_session_content["current_session"]["cur_db"] = ""
+                     json.dump(json_session_content, updating_json, indent= 4)
+                     Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, cur_widget=["pages","start"] ,is_auth= False)
+                     return
                 self.ui.stackedWidget.setCurrentWidget(all_ui_elements["pages"][page_flag])
 
 
@@ -132,6 +139,7 @@ class MainWin(QMainWindow):
         self.ui.enable_logs.clicked.connect(lambda check = None ,  flag = ["widgets", "logs"] : self.update_session(flag))
         self.ui.Authorize_button.clicked.connect(self.auth_to_db)
         self.ui.db_work_but.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.work_with_db_page))
+        self.ui.logout_but.clicked.connect(lambda : self.update_session(["logout"]))
         #Переключение Burger-menu
 
 

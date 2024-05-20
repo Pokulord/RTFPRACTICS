@@ -43,9 +43,11 @@ class Ui_Functions(MainWin):
             self.ui.db_work_but.show()
             self.ui.logout_but.show()
             self.ui.autorize_but.hide()
+        if not is_auth:
+            self.ui.autorize_but.show()
         if json_session_content["current_session"]["widgets"]["logs"] :
             self.ui.enable_logs.setChecked(True)
-        if cur_widget != None: 
+        if cur_widget != None:
             self.ui.stackedWidget.setCurrentWidget(all_ui_elements[cur_widget[0]][cur_widget[1]])
 
         # if is_auth:
