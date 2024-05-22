@@ -50,8 +50,10 @@ class Ui_Functions(MainWin):
         if cur_widget != None:
             self.ui.stackedWidget.setCurrentWidget(all_ui_elements[cur_widget[0]][cur_widget[1]])
 
-        # if is_auth:
-
+    def InsertTables(self, list_of_tables):
+        for table_cell in list_of_tables:
+            for table in table_cell:
+                self.ui.table_choice_comboBox.addItem(table)
                 
 
 

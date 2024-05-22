@@ -79,7 +79,9 @@ class MainWin(QMainWindow):
                 self.ui.stackedWidget.setCurrentWidget(all_ui_elements["pages"][page_flag])
 
 
-         
+    def Send_Query(self, query_type , data_to_insert = None):
+        self.db.Queries(query_type= query_type, table_to_select=self.ui.table_choice_comboBox.currentText())
+
     def auth_to_db(self):
         global page_flag
         page_flag = "work_with_db"
@@ -90,7 +92,7 @@ class MainWin(QMainWindow):
             print("Успешеное подключение к БД")
             self.ui.wrong_pass_label.hide()
             self.update_session(["auth", bd_login, bd_pass, need_bd])
-
+            tables_list = self.db.Select_all_db_tables()
             self.ui.wrong_pass_label.show()
 
 
@@ -134,12 +136,18 @@ class MainWin(QMainWindow):
                   page_flag = "work_with_db"
                   Ui_Functions.HideElems(self, all_ui_elements)
                   Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, is_auth=True, cur_widget=["pages",page_flag])
+                  tables_list = self.db.Select_all_db_tables()
+                  Ui_Functions.InsertTables(self, tables_list)
+        # Привязка действий к кнопкам
+        #######
         self.ui.db_work_but.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.work_with_db_page))          
         self.ui.autorize_but.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.authorize_page))
         self.ui.enable_logs.clicked.connect(lambda check = None ,  flag = ["widgets", "logs"] : self.update_session(flag))
         self.ui.Authorize_button.clicked.connect(self.auth_to_db)
         self.ui.db_work_but.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.work_with_db_page))
         self.ui.logout_but.clicked.connect(lambda : self.update_session(["logout"]))
+        self.ui.choice_table_but.clicked.connect(lambda : self.Send_Query("select"))
+        #######
         #Переключение Burger-menu
 
 

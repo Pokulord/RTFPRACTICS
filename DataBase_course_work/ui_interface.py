@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceMfjMJX.ui'
+## Form generated from reading UI file 'interfaceaDLcFW.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.14.1
 ##
@@ -332,7 +332,8 @@ class Ui_MainWindow(object):
         self.table_choice_comboBox = QComboBox(self.work_with_db_frame)
         self.table_choice_comboBox.setObjectName(u"table_choice_comboBox")
         self.table_choice_comboBox.setMaximumSize(QSize(200, 16777215))
-        self.table_choice_comboBox.setStyleSheet(u"background-color: white")
+        self.table_choice_comboBox.setStyleSheet(u"background-color: white;\n"
+"color: black ;")
 
         self.verticalLayout_15.addWidget(self.table_choice_comboBox)
 

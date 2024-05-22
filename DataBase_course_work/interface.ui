@@ -458,7 +458,7 @@ QPushButton:hover
           <item alignment="Qt::AlignTop">
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
-             <number>3</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="Info_page">
              <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -689,7 +689,8 @@ QPushButton:hover
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color: white</string>
+                    <string notr="true">background-color: white;
+color: black ;</string>
                    </property>
                   </widget>
                  </item>
