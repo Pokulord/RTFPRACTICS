@@ -12,6 +12,13 @@ import json
 from datetime import datetime
 
 
+# Конвертируем дату в строку
+
+def conver_date_to_string(date_object):
+    if date_object is None:
+        return
+    return date_object.strftime("%d-%m-%Y")
+
 # Класс для функций
 
 class Ui_Functions(MainWin):
@@ -54,6 +61,26 @@ class Ui_Functions(MainWin):
         for table_cell in list_of_tables:
             for table in table_cell:
                 self.ui.table_choice_comboBox.addItem(table)
+
+    def Update_table(self, list_of_columns = None, t_rows = None):
+        if list_of_columns is not  None and t_rows is not None:
+            self.ui.bd_table.setColumnCount(len(list_of_columns))
+            self.ui.bd_table.setHorizontalHeaderLabels(list_of_columns)
+            self.ui.bd_table.setRowCount(0)
+            self.ui.bd_table.setRowCount(len(t_rows) + 1)
+            t_rows = [list(row) for row in t_rows]
+            for row in range(len(t_rows)):
+                for row_element in range(len(t_rows[row])):
+                    try:
+                        if isinstance(t_rows[row][row_element], datetime.date):
+                            t_rows[row][row_element] = conver_date_to_string(t_rows[row][row_element])
+                    except:
+                        pass
+            print(t_rows)
+            for row in range(len(t_rows)):
+                for row_str in range(len(t_rows[row])):
+                    self.ui.bd_table.setItem(row, row_str, QtWidgets.QTableWidgetItem(str(t_rows[row][row_str])))
+
                 
 
 

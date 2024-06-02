@@ -34,7 +34,8 @@ class Connect_to_DB:
                 cursor.execute(f"select * from {table_to_select} ;")
                 all_rows = cursor.fetchall()
                 cursor.execute(f"SELECT * FROM information_schema.columns WHERE table_schema = 'public' AND table_name ='{table_to_select}';")
-                all_tables = cursor.fetchall()
+                all_columns = [index[3] for index in cursor.fetchall()]
+                return [all_columns, all_rows,  "update columns"]
 
 # var1 = Connect_to_DB()
 # var1.connect_to_database()

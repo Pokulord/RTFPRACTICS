@@ -534,7 +534,7 @@ QPushButton:hover
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QLabel" name="label_4">
+                  <widget class="QLabel" name="current_role_label">
                    <property name="styleSheet">
                     <string notr="true">color: white</string>
                    </property>
@@ -943,28 +943,45 @@ background-color:white;</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QRadioButton" name="radioButton">
+                     <widget class="QLabel" name="label_5">
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>10</pointsize>
+                       </font>
+                      </property>
                       <property name="styleSheet">
-                       <string notr="true">color:white
-</string>
+                       <string notr="true">color:white; </string>
                       </property>
                       <property name="text">
-                       <string>Администратор</string>
+                       <string>Выберите роль:</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QRadioButton" name="radioButton_2">
+                     <widget class="QComboBox" name="choice_role">
                       <property name="styleSheet">
-                       <string notr="true">color: white</string>
+                       <string notr="true">background-color:white</string>
                       </property>
-                      <property name="text">
-                       <string>Родитель</string>
-                      </property>
+                      <item>
+                       <property name="text">
+                        <string>Администратор</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Родитель</string>
+                       </property>
+                      </item>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QCheckBox" name="checkBox_2">
+                     <widget class="QCheckBox" name="save_session_checkbox">
                       <property name="font">
                        <font>
                         <pointsize>10</pointsize>

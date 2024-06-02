@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceaDLcFW.ui'
+## Form generated from reading UI file 'interfaceVmPwFy.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.14.1
 ##
@@ -250,11 +250,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_15.setSpacing(0)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
         self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
-        self.label_4 = QLabel(self.work_with_db_frame)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setStyleSheet(u"color: white")
+        self.current_role_label = QLabel(self.work_with_db_frame)
+        self.current_role_label.setObjectName(u"current_role_label")
+        self.current_role_label.setStyleSheet(u"color: white")
 
-        self.verticalLayout_15.addWidget(self.label_4)
+        self.verticalLayout_15.addWidget(self.current_role_label)
 
         self.bd_table = QTableWidget(self.work_with_db_frame)
         self.bd_table.setObjectName(u"bd_table")
@@ -439,25 +439,28 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.DB_choice_CB)
 
-        self.radioButton = QRadioButton(self.data_input_frame)
-        self.radioButton.setObjectName(u"radioButton")
-        self.radioButton.setStyleSheet(u"color:white\n"
-"")
+        self.label_5 = QLabel(self.data_input_frame)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setMaximumSize(QSize(16777215, 20))
+        self.label_5.setFont(font2)
+        self.label_5.setStyleSheet(u"color:white; ")
 
-        self.verticalLayout_8.addWidget(self.radioButton)
+        self.verticalLayout_8.addWidget(self.label_5)
 
-        self.radioButton_2 = QRadioButton(self.data_input_frame)
-        self.radioButton_2.setObjectName(u"radioButton_2")
-        self.radioButton_2.setStyleSheet(u"color: white")
+        self.choice_role = QComboBox(self.data_input_frame)
+        self.choice_role.addItem("")
+        self.choice_role.addItem("")
+        self.choice_role.setObjectName(u"choice_role")
+        self.choice_role.setStyleSheet(u"background-color:white")
 
-        self.verticalLayout_8.addWidget(self.radioButton_2)
+        self.verticalLayout_8.addWidget(self.choice_role)
 
-        self.checkBox_2 = QCheckBox(self.data_input_frame)
-        self.checkBox_2.setObjectName(u"checkBox_2")
-        self.checkBox_2.setFont(font2)
-        self.checkBox_2.setStyleSheet(u"color:white")
+        self.save_session_checkbox = QCheckBox(self.data_input_frame)
+        self.save_session_checkbox.setObjectName(u"save_session_checkbox")
+        self.save_session_checkbox.setFont(font2)
+        self.save_session_checkbox.setStyleSheet(u"color:white")
 
-        self.verticalLayout_8.addWidget(self.checkBox_2)
+        self.verticalLayout_8.addWidget(self.save_session_checkbox)
 
 
         self.verticalLayout_6.addWidget(self.data_input_frame, 0, Qt.AlignHCenter)
@@ -631,7 +634,7 @@ class Ui_MainWindow(object):
         self.info_but.setText("")
         self.enable_logs.setText(QCoreApplication.translate("MainWindow", u"   \u041b\u043e\u0433\u0438", None))
         self.logout_but.setText("")
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0410\u0428\u0410 \u0422\u0415\u041a\u0423\u0429\u0410\u042f \u0420\u041e\u041b\u042c: ", None))
+        self.current_role_label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0410\u0428\u0410 \u0422\u0415\u041a\u0423\u0429\u0410\u042f \u0420\u041e\u041b\u042c: ", None))
         self.delete_row.setText(QCoreApplication.translate("MainWindow", u"\u0414\u041e\u0411\u0410\u0412\u0418\u0422\u042c", None))
         self.add_row.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0414\u0410\u041b\u0418\u0422\u042c", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0430\u0431\u043b\u0438\u0446\u0443", None))
@@ -645,9 +648,11 @@ class Ui_MainWindow(object):
         self.DB_choice_CB.setItemText(0, QCoreApplication.translate("MainWindow", u"It_Cube", None))
 
         self.DB_choice_CB.setCurrentText(QCoreApplication.translate("MainWindow", u"It_Cube", None))
-        self.radioButton.setText(QCoreApplication.translate("MainWindow", u"\u0410\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440", None))
-        self.radioButton_2.setText(QCoreApplication.translate("MainWindow", u"\u0420\u043e\u0434\u0438\u0442\u0435\u043b\u044c", None))
-        self.checkBox_2.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c \u0441\u0435\u0441\u0441\u0438\u044e", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0440\u043e\u043b\u044c:", None))
+        self.choice_role.setItemText(0, QCoreApplication.translate("MainWindow", u"\u0410\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440", None))
+        self.choice_role.setItemText(1, QCoreApplication.translate("MainWindow", u"\u0420\u043e\u0434\u0438\u0442\u0435\u043b\u044c", None))
+
+        self.save_session_checkbox.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c \u0441\u0435\u0441\u0441\u0438\u044e", None))
         self.Authorize_button.setText(QCoreApplication.translate("MainWindow", u"\u0412\u041e\u0419\u0422\u0418", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0414\u041e\u0411\u0420\u041e \u041f\u041e\u0416\u0410\u041b\u041e\u0412\u0410\u0422\u042c", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"LOGS", None))

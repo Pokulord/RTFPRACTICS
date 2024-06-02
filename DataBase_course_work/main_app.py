@@ -34,6 +34,7 @@ if "session.json" not in os.listdir() :
     {
         "login" : "",
         "password" : "",
+        "role": "",
         "widgets":
         {
             "logs" : False,
@@ -48,6 +49,12 @@ if "session.json" not in os.listdir() :
 
 with open("session.json", "r") as json_session:
     json_session_content = json.load(json_session)
+
+
+allowed_tables = {
+     "Администратор":
+     []
+}
 
 class MainWin(QMainWindow):
 
@@ -66,8 +73,10 @@ class MainWin(QMainWindow):
                      json_session_content["current_session"]["login"] = session_flags[1]
                      json_session_content["current_session"]["password"] = session_flags[2]
                      json_session_content["current_session"]["cur_db"] = session_flags[3]
+                     json_session_content["current_session"]["role"] = session_flags[4]
                      json.dump(json_session_content, updating_json, indent= 4)
                      Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, ["pages", "work_with_db"], is_auth= True)
+                     self.ui.current_role_label.setText(f"Ваша текущая роль : {session_flags[4]}")
                      return
                 if session_flags[0] == "logout":
                      json_session_content["current_session"]["login"] = ""
@@ -80,7 +89,10 @@ class MainWin(QMainWindow):
 
 
     def Send_Query(self, query_type , data_to_insert = None):
-        self.db.Queries(query_type= query_type, table_to_select=self.ui.table_choice_comboBox.currentText())
+        result = self.db.Queries(query_type= query_type, table_to_select=self.ui.table_choice_comboBox.currentText())
+
+        if len(result) == 3:
+             Ui_Functions.Update_table(self, result[0], result[1])
 
     def auth_to_db(self):
         global page_flag
@@ -88,11 +100,16 @@ class MainWin(QMainWindow):
         bd_login = self.ui.login_lineedit.text().strip()
         bd_pass = self.ui.password_lineEdit.text().strip()
         need_bd = self.ui.DB_choice_CB.currentText()
+        role = self.ui.choice_role.currentText()
+        # role = 
         if self.db.connect_to_database("localhost",bd_login, bd_pass, need_bd):
             print("Успешеное подключение к БД")
             self.ui.wrong_pass_label.hide()
-            self.update_session(["auth", bd_login, bd_pass, need_bd])
+            if self.ui.save_session_checkbox.isChecked():
+                self.update_session(["auth", bd_login, bd_pass, need_bd, role])
+            Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, ["pages", "work_with_db"], is_auth= True)
             tables_list = self.db.Select_all_db_tables()
+        else:
             self.ui.wrong_pass_label.show()
 
 
@@ -130,9 +147,11 @@ class MainWin(QMainWindow):
              db_login = json_session_content['current_session']["login"]
              db_pass = json_session_content['current_session']["password"]
              need_db = json_session_content['current_session']["cur_db"]
+             role = json_session_content['current_session']["role"]
              if self.db.connect_to_database("localhost", db_login, db_pass, need_db):
                   Ui_Functions.HideElems(self, all_ui_elements)
                   is_auth_flag = True
+                  self.ui.current_role_label.setText(f"Ваша текущая роль: {role}")
                   page_flag = "work_with_db"
                   Ui_Functions.HideElems(self, all_ui_elements)
                   Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, is_auth=True, cur_widget=["pages",page_flag])
@@ -148,6 +167,7 @@ class MainWin(QMainWindow):
         self.ui.logout_but.clicked.connect(lambda : self.update_session(["logout"]))
         self.ui.choice_table_but.clicked.connect(lambda : self.Send_Query("select"))
         #######
+        self.ui.bd_table.setSortingEnabled(True)
         #Переключение Burger-menu
 
 
