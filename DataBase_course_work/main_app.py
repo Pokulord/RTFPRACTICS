@@ -51,13 +51,30 @@ with open("session.json", "r") as json_session:
     json_session_content = json.load(json_session)
 
 
-allowed_tables = {
-     "Администратор":
-     []
+allows= {
+     "Родитель":
+     [ {
+          "allowed_tables":
+          [
+          "clubs",
+          "shedule",
+          "visiting"
+           ],
+
+           "delete_permission": False,
+           "adding_permission": False
+    }],
+    "Администратор":
+    [
+         {
+              "allowed_tables": "all",
+              "delete_permission": True,
+                "adding_permission": True
+         }
+    ]
 }
 
 class MainWin(QMainWindow):
-
 
 
     def update_session(self, session_flags):
@@ -109,6 +126,11 @@ class MainWin(QMainWindow):
                 self.update_session(["auth", bd_login, bd_pass, need_bd, role])
             Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, ["pages", "work_with_db"], is_auth= True)
             tables_list = self.db.Select_all_db_tables()
+            allowed_tables = [list(allows[role][0]["allowed_tables"])]
+            if allows[role][0]["allowed_tables"] == "all":
+                allowed_tables = tables_list
+            print(allowed_tables)
+            Ui_Functions.InsertTables(self, allowed_tables)
         else:
             self.ui.wrong_pass_label.show()
 
@@ -156,7 +178,11 @@ class MainWin(QMainWindow):
                   Ui_Functions.HideElems(self, all_ui_elements)
                   Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, is_auth=True, cur_widget=["pages",page_flag])
                   tables_list = self.db.Select_all_db_tables()
-                  Ui_Functions.InsertTables(self, tables_list)
+                  allowed_tables = [list(allows[role][0]["allowed_tables"])]
+                  if allows[role][0]["allowed_tables"] == "all":
+                       allowed_tables = tables_list
+                  print(allowed_tables)
+                  Ui_Functions.InsertTables(self, allowed_tables)
         # Привязка действий к кнопкам
         #######
         self.ui.db_work_but.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.work_with_db_page))          

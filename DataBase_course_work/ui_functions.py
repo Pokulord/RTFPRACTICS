@@ -60,6 +60,7 @@ class Ui_Functions(MainWin):
     def InsertTables(self, list_of_tables):
         for table_cell in list_of_tables:
             for table in table_cell:
+                print(f"Добавляю таблицу {table}")
                 self.ui.table_choice_comboBox.addItem(table)
 
     def Update_table(self, list_of_columns = None, t_rows = None):
