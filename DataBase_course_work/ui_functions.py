@@ -33,7 +33,7 @@ class Ui_Functions(MainWin):
             for widget in ui_elements[key]:
                 ui_elements[key][widget].hide()
 
-    def ShowInterface(self , all_ui_elements, json_session_content, cur_widget = None, is_auth = False):
+    def ShowInterface(self , all_ui_elements, json_session_content, cur_widget = None, is_auth = False, is_admin = None):
         print(cur_widget)
         global json_session
         self.ui.stackedWidget.setCurrentWidget(self.ui.start_page)
@@ -56,6 +56,9 @@ class Ui_Functions(MainWin):
             self.ui.enable_logs.setChecked(True)
         if cur_widget != None:
             self.ui.stackedWidget.setCurrentWidget(all_ui_elements[cur_widget[0]][cur_widget[1]])
+        print (f"Вы админ? {is_admin}")
+        if is_admin == False:
+            self.ui.frame_to_add_and_delete.hide()
 
     def InsertTables(self, list_of_tables):
         for table_cell in list_of_tables:

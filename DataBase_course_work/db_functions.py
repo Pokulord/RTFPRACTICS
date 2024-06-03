@@ -28,7 +28,7 @@ class Connect_to_DB:
         
     def Queries(self, query_type,
                 table_to_select = None , 
-                data_to_insert = None):
+                datato_insert = None):
         with connection.cursor() as cursor:
             if query_type == "select":
                 cursor.execute(f"select * from {table_to_select} ;")
@@ -36,6 +36,21 @@ class Connect_to_DB:
                 cursor.execute(f"SELECT * FROM information_schema.columns WHERE table_schema = 'public' AND table_name ='{table_to_select}';")
                 all_columns = [index[3] for index in cursor.fetchall()]
                 return [all_columns, all_rows,  "update columns"]
+            
+            if query_type == "insert":
+                print(f" Данные для вставки : {datato_insert}")
+                # data_to_query = ",".join(datato_insert[1::])
+                # print(data_to_query)
+                data_to_query = tuple(datato_insert)
+                print(data_to_query)
+                values_to_insert_template = ",".join(["%s" for i in range(len(data_to_query))])
+                
+                query = f"INSERT INTO {table_to_select} VALUES({values_to_insert_template}) "
+                print(query)
+                # print(query)
+                cursor.execute(query, data_to_query)
+                connection.commit()
+                return "Success"
 
 # var1 = Connect_to_DB()
 # var1.connect_to_database()

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceVmPwFy.ui'
+## Form generated from reading UI file 'interfacemMhaJM.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.14.1
 ##
@@ -270,18 +270,18 @@ class Ui_MainWindow(object):
         self.frame_to_add_and_delete.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_6 = QHBoxLayout(self.frame_to_add_and_delete)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.delete_row = QPushButton(self.frame_to_add_and_delete)
-        self.delete_row.setObjectName(u"delete_row")
-        self.delete_row.setEnabled(True)
-        self.delete_row.setMinimumSize(QSize(162, 39))
-        self.delete_row.setMaximumSize(QSize(162, 39))
+        self.add_row_but = QPushButton(self.frame_to_add_and_delete)
+        self.add_row_but.setObjectName(u"add_row_but")
+        self.add_row_but.setEnabled(True)
+        self.add_row_but.setMinimumSize(QSize(162, 39))
+        self.add_row_but.setMaximumSize(QSize(162, 39))
         font1 = QFont()
         font1.setFamily(u"Montserrat")
         font1.setPointSize(10)
         font1.setBold(True)
         font1.setWeight(75)
-        self.delete_row.setFont(font1)
-        self.delete_row.setStyleSheet(u"QPushButton\n"
+        self.add_row_but.setFont(font1)
+        self.add_row_but.setStyleSheet(u"QPushButton\n"
 "{\n"
 "	\n"
 "	background-color: rgb(217, 217, 217);\n"
@@ -295,15 +295,15 @@ class Ui_MainWindow(object):
 "	background-color: rgb(64, 72, 89);\n"
 "}")
 
-        self.horizontalLayout_6.addWidget(self.delete_row)
+        self.horizontalLayout_6.addWidget(self.add_row_but)
 
-        self.add_row = QPushButton(self.frame_to_add_and_delete)
-        self.add_row.setObjectName(u"add_row")
-        self.add_row.setEnabled(True)
-        self.add_row.setMinimumSize(QSize(162, 39))
-        self.add_row.setMaximumSize(QSize(162, 39))
-        self.add_row.setFont(font1)
-        self.add_row.setStyleSheet(u"QPushButton\n"
+        self.delete_row_but = QPushButton(self.frame_to_add_and_delete)
+        self.delete_row_but.setObjectName(u"delete_row_but")
+        self.delete_row_but.setEnabled(True)
+        self.delete_row_but.setMinimumSize(QSize(162, 39))
+        self.delete_row_but.setMaximumSize(QSize(162, 39))
+        self.delete_row_but.setFont(font1)
+        self.delete_row_but.setStyleSheet(u"QPushButton\n"
 "{\n"
 "	\n"
 "	background-color: rgb(217, 217, 217);\n"
@@ -317,7 +317,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(64, 72, 89);\n"
 "}")
 
-        self.horizontalLayout_6.addWidget(self.add_row)
+        self.horizontalLayout_6.addWidget(self.delete_row_but)
 
 
         self.verticalLayout_15.addWidget(self.frame_to_add_and_delete)
@@ -635,8 +635,8 @@ class Ui_MainWindow(object):
         self.enable_logs.setText(QCoreApplication.translate("MainWindow", u"   \u041b\u043e\u0433\u0438", None))
         self.logout_but.setText("")
         self.current_role_label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0410\u0428\u0410 \u0422\u0415\u041a\u0423\u0429\u0410\u042f \u0420\u041e\u041b\u042c: ", None))
-        self.delete_row.setText(QCoreApplication.translate("MainWindow", u"\u0414\u041e\u0411\u0410\u0412\u0418\u0422\u042c", None))
-        self.add_row.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0414\u0410\u041b\u0418\u0422\u042c", None))
+        self.add_row_but.setText(QCoreApplication.translate("MainWindow", u"\u0414\u041e\u0411\u0410\u0412\u0418\u0422\u042c", None))
+        self.delete_row_but.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0414\u0410\u041b\u0418\u0422\u042c", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0430\u0431\u043b\u0438\u0446\u0443", None))
         self.choice_table_but.setText(QCoreApplication.translate("MainWindow", u"\u0412\u042b\u0411\u0420\u0410\u0422\u042c", None))
         self.login_lineedit.setText("")

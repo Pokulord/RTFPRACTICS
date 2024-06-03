@@ -572,7 +572,7 @@ QPushButton:hover
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_6">
                     <item>
-                     <widget class="QPushButton" name="delete_row">
+                     <widget class="QPushButton" name="add_row_but">
                       <property name="enabled">
                        <bool>true</bool>
                       </property>
@@ -617,7 +617,7 @@ QPushButton:hover
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="add_row">
+                     <widget class="QPushButton" name="delete_row_but">
                       <property name="enabled">
                        <bool>true</bool>
                       </property>

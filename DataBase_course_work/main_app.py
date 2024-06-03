@@ -25,6 +25,10 @@ from ui_functions import *
 
 from db_functions import Connect_to_DB
 
+
+#Для работы с датой
+from datetime import datetime
+
 import os
 import json
 
@@ -76,7 +80,15 @@ allows= {
 
 class MainWin(QMainWindow):
 
-
+    def try_convert_to_date(list_to_convert):
+        for element in range(len(list_to_convert)):
+            try:
+                list_to_convert[element] = datetime.strftime( list_to_convert[element], "%Y-%m-%d")
+            except:
+                pass
+        return list_to_convert
+        
+              
     def update_session(self, session_flags):
             Ui_Functions.HideElems(self, all_ui_elements)
             with open("session.json" , "w") as updating_json:
@@ -106,10 +118,28 @@ class MainWin(QMainWindow):
 
 
     def Send_Query(self, query_type , data_to_insert = None):
-        result = self.db.Queries(query_type= query_type, table_to_select=self.ui.table_choice_comboBox.currentText())
+        result = self.db.Queries(query_type= query_type, table_to_select=self.ui.table_choice_comboBox.currentText(), datato_insert=data_to_insert)
+
+        print(f"Результат запроса {result}")
 
         if len(result) == 3:
              Ui_Functions.Update_table(self, result[0], result[1])
+        if result == "Success":
+             return True
+
+    def gather_adding_values(self):
+         # Сбор дбавляемых данных из TableWidget
+        row_count = self.ui.bd_table.rowCount() -1 
+        columns_count = self.ui.bd_table.columnCount()
+        values_to_add = []
+        for value in range(columns_count):
+             values_to_add.append(self.ui.bd_table.item(row_count, value).text())
+        print(values_to_add)
+        values_to_add[0] = int(values_to_add[0])
+
+        if self.Send_Query("insert", data_to_insert= values_to_add):
+             self.Send_Query("select")
+             
 
     def auth_to_db(self):
         global page_flag
@@ -176,7 +206,9 @@ class MainWin(QMainWindow):
                   self.ui.current_role_label.setText(f"Ваша текущая роль: {role}")
                   page_flag = "work_with_db"
                   Ui_Functions.HideElems(self, all_ui_elements)
-                  Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, is_auth=True, cur_widget=["pages",page_flag])
+                  is_admin_flag = str(role) == list(allows.keys())[1]
+                  print(is_admin_flag)
+                  Ui_Functions.ShowInterface(self, all_ui_elements, json_session_content, is_auth=True, cur_widget=["pages",page_flag], is_admin = is_admin_flag)
                   tables_list = self.db.Select_all_db_tables()
                   allowed_tables = [list(allows[role][0]["allowed_tables"])]
                   if allows[role][0]["allowed_tables"] == "all":
@@ -192,6 +224,7 @@ class MainWin(QMainWindow):
         self.ui.db_work_but.clicked.connect(lambda : self.ui.stackedWidget.setCurrentWidget(self.ui.work_with_db_page))
         self.ui.logout_but.clicked.connect(lambda : self.update_session(["logout"]))
         self.ui.choice_table_but.clicked.connect(lambda : self.Send_Query("select"))
+        self.ui.add_row_but.clicked.connect(self.gather_adding_values)
         #######
         self.ui.bd_table.setSortingEnabled(True)
         #Переключение Burger-menu
